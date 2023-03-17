@@ -1,10 +1,10 @@
 # include <stdio.h>
-/*
-*Main the program does not use printf function
-*return: 0
+/**
+ *main  - print line of code with puts function
+ *Return: 0
 */
 int main(void)
 {
-puts("\"Programming is like building a multilingual puzzle");
-return (0);
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
