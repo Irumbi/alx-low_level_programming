@@ -1,5 +1,5 @@
 # include <stdio.h>
-/**
+/*
 *Main the program does not use printf function
 *return: 0
 */
