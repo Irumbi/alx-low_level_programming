@@ -1,9 +1,10 @@
 #include "main.h"
 /**
- *main -entry point
- *description -1-alphabet
- *Return: 0
+ *print_alphabet - function that print alphabet in lower case
+ *
+ *Return: always 0;
  */
+
 void print_alphabet(void)
 {
 	char i;
