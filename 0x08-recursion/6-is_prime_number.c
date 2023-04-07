@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *is_prime_number - check if a number is a prime number
+ *is_prime_number_helper - prime number helper to check prime
  *@n: the number to check
  *@i: the current divisor to check
  *
@@ -12,7 +12,7 @@ int is_prime_number_helper(int n, int i)
 		return (0);
 	else if (i * i > n)
 		return (1);
-	else if (n % 1 == 0)
+	else if (n % i == 0)
 		return (0);
 	else
 		return (is_prime_number_helper(n, i + 1));
