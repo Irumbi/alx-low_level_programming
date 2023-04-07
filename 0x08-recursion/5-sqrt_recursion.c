@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *sqrt_recursion_helper - helper function to computes the square root of a number
+ *sqrt_recursion_helper - computes square root of a number
  *@n: the number to compute the square root of
  *@i: the value to check
  *
@@ -8,12 +8,12 @@
  */
 int sqrt_recursion_helper(int n, int i)
 {
-        if (i * i == n)
-                return (i);
-        else if (i * i > n)
-                return (-1);
-        else
-                return (sqrt_recursion_helper(n, i + 1));
+	if (i * i == n)
+		return (i);
+	else if (i * i > n)
+		return (-1);
+	else
+		return (sqrt_recursion_helper(n, i + 1));
 }
 
 /**
