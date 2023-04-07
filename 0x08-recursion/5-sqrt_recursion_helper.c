@@ -6,12 +6,12 @@
  *
  *Return: on succes square root of n, on error -1
  */
-int _sqrt_recursion_helper(int n, int i)
+int sqrt_recursion_helper(int n, int i)
 {
 	if (i * i == n)
 		return (i);
 	else if (i * i > n)
 		return (-1);
 	else
-		return (_sqrt_recursion_helper(n, i + 1));
+		return (sqrt_recursion_helper(n, i + 1));
 }
