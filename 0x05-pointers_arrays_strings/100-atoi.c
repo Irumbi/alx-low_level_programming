@@ -10,20 +10,18 @@ int _atoi(char *s)
 {
 	int result = 0;
 	int sign = 1;
-	int digit_found = 0;
 
 	while (*s)
 	{
-		if (*s == '-' && !digit_found)
+		if (*s == '-')
 		{
 			sign = -1;
 		}
 		else if (*s >= '0' && *s <= '9')
 		{
 			result = result * 10 + (*s - '0');
-			digit_found = 1;
 		}
-		else if (digit_found)
+		else if (result != 0)
 		{
 			break;
 		}
