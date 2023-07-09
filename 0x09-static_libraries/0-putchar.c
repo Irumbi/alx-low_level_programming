@@ -1,13 +1,15 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
- *_putchar - prints single character
- *
+ *main -entry point print single character per
+ *description -0-putchar
  *Return: 0
  */
-
-int _putchar(char c)
+int main(void)
 {
-	return (write(1, &c, 1));
+	int ch;
+
+	for (ch = "A"; ch <= "Z"; ch++
+		_putchar(ch);
+	return (0);
 }
