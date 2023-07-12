@@ -1,1 +1,1 @@
-Dynamic Memory Allocation with Malloc function
+Malloc project to allocate memory to the dnamically
