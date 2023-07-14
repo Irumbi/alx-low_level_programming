@@ -10,8 +10,8 @@
  *
  * Return: Nothing.
  */
-void simple_print_buffer(int *buffer, unsigned int size)
-{
+	void simple_print_buffer(int *buffer, unsigned int size)
+	{
 	unsigned int i;
 
 	i = 0;
@@ -19,11 +19,11 @@ void simple_print_buffer(int *buffer, unsigned int size)
 	{
 	if (i % 10)
 	{
-	    printf(" ");
+	printf(" ");
 	}
 	if (!(i % 10) && i)
 	{
-	    printf("\n");
+	printf("\n");
 	}
 	printf("0x%02x", buffer[i]);
 	i++;
