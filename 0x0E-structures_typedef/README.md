@@ -1,2 +1,1 @@
-Struct Project
-Use struct create and use variable of different data types 
+typedef project 0x0E
