@@ -1,1 +1,1 @@
-A readme file about intoduction to C programming
+A readme file about introduction to c Programming

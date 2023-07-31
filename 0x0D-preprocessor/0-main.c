@@ -1,7 +1,6 @@
 #include "0-object_like_macro.h"
-#include "0-object_like_macro.h"
 #include <stdio.h>
-
+#define SIZE 10
 /**
  * main - check the code
  *

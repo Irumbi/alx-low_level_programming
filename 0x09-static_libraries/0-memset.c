@@ -8,12 +8,12 @@
  *Return: pointer to return 1 on sucess and 0 on error
  */
 char *_memset(char *s, char b, unsigned int n)
-{
-        char *p = s;
+	{
+	char *p = s;
 
-        while (n--)
-        {
-                *p++ = b;
-        }
-        return (s);
-}
+	while (n--)
+	{
+		*p++ = b;
+	}
+	return (s);
+	}
