@@ -5,9 +5,9 @@
  * get_loop_length - calculates the length of a loop in a linked list
  * @head: pointer to the head of the linked list
  *
- * Return: the number of nodes in the loop, or 0 if there is no loop
+ * Return: the number of nodes in the loop
  */
-size_t get_loop_length(const listint_t *head)
+size_t looped_listint_len(const listint_t *head)
 {
 	const listint_t *slow_ptr, *fast_ptr;
 	size_t loop_length = 1;
@@ -57,7 +57,7 @@ size_t print_listint_safe(const listint_t *head)
 {
 	size_t loop_length, i;
 
-	loop_length = get_loop_length(head);
+	loop_length = looped_listint_len(head);
 
 	if (!loop_length)
 	{
