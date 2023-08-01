@@ -1,48 +1,53 @@
 #include "lists.h"
 #include <stdio.h>
 
+size_t get_loop_length(const listint_t *h);
+size_t print_listint_safe(const listint_t *h);
+
 /**
- * get_loop_length - calculates the length of a loop in a linked list
- * @head: pointer to the head of the linked list
+ * get_loop_length - Counts the number of unique nodes
+ * in a looped listint_t linked list.
+ * @head: A pointer to the head of the listint_t to check.
  *
- * Return: the number of nodes in the loop
+ * Return: If the list is not looped - 0.
+ * Otherwise - the number of unique nodes in the list.
  */
-size_t looped_listint_len(const listint_t *head)
+size_t get_loop_length(const listint_t *head)
 {
-	const listint_t *slow_ptr, *fast_ptr;
-	size_t loop_length = 1;
+	const listint_t *tortoise, *hare;
+	size_t count = 1;
 
 	if (head == NULL || head->next == NULL)
-	return (0);
+		return (0);
 
-	slow_ptr = head->next;
-	fast_ptr = head->next->next;
+	tortoise = head->next;
+	hare = (head->next)->next;
 
-	while (fast_ptr != NULL)
+	while (hare)
 	{
-	if (slow_ptr == fast_ptr)
-	{
-		slow_ptr = head;
-		while (slow_ptr != fast_ptr)
+		if (tortoise == hare)
 		{
-		loop_length++;
-		slow_ptr = slow_ptr->next;
-		fast_ptr = fast_ptr->next;
+			tortoise = head;
+			while (tortoise != hare)
+			{
+				count++;
+				tortoise = tortoise->next;
+				hare = hare->next;
+			}
+
+			tortoise = tortoise->next;
+			while (tortoise != hare)
+			{
+				count++;
+				tortoise = tortoise->next;
+			}
+
+			return (count);
 		}
 
-		slow_ptr = slow_ptr->next;
-		while (slow_ptr != fast_ptr)
-		{
-		loop_length++;
-		slow_ptr = slow_ptr->next;
-		}
-
-		return (loop_length);
+		tortoise = tortoise->next;
+		hare = (hare->next)->next;
 	}
-
-	slow_ptr = slow_ptr->next;
-	fast_ptr = fast_ptr->next->next;
-}
 
 	return (0);
 }
@@ -55,24 +60,29 @@ size_t looped_listint_len(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t loop_length, i;
+	size_t count, index = 0;
 
-	loop_length = looped_listint_len(head);
+	count = get_loop_length(head);
 
-	if (!loop_length)
+	if (count == 0)
 	{
-		for (; head != NULL; loop_length++, head = head->next)
+		for (; head != NULL; count++)
+		{
 			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
+		}
 	}
 	else
 	{
-		for (i = 0; i < loop_length; i++, head = head->next)
+		for (index = 0; index < count; index++)
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
-			if (i == loop_length - 1)
-				printf("-> [%p] %d\n", (void *)head, head->n);
-		}	
+			head = head->next;
+		}
+
+		printf("-> [%p] %d\n", (void *)head, head->n);
 	}
 
-	return (loop_length);
+	return (count);
 }
+
